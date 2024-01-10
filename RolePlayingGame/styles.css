@@ -1,5 +1,13 @@
 body {
   background-color: #0a0a23;
+  overflow: hidden;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  margin: 5px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 #text {
@@ -13,8 +21,9 @@ body {
   max-height: 400px;
   background-color: #ffffff;
   color: #ffffff;
-  margin: 30px auto 0px;
+  margin: 150px auto;
   padding: 10px;
+  border-radius: 1%;
 }
 
 #controls,
@@ -42,4 +51,28 @@ button {
   background-color: #feac32;
   background-image: linear-gradient(#fecc4c, #ffac33);
   border: 3px solid #feac32;
+  margin: 5px;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-image: linear-gradient(#0a0a23, #0a0b33);
+  color: white;
+  border: 3px solid black;
+}
+
+@media (max-width: 480px) {
+  #game {
+    max-width: 420px;
+    max-height: 600px;
+    background-color: #ffffff;
+    color: #ffffff;
+    margin: 50% auto;
+    padding: 10px;
+  }
+
+  #controls {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,10 +1,12 @@
 let xp = 0;
 let health = 100;
 let gold = 50;
-let currentWeapon = 0;
-let fighting;
+let currentWeapon = 0; // Using 0 because we are using it as an array index.
+let fighting; // variable to tell the current monster we are fighting.
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = ["stick"]; // player starts with a stick by default
+
+// connecting all buttons to js variables using query selector
 
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
@@ -16,12 +18,16 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+
+// weapons array:
 const weapons = [
   { name: "stick", power: 5 },
   { name: "dagger", power: 30 },
   { name: "claw hammer", power: 50 },
   { name: "sword", power: 100 },
 ];
+
+// monsters array:
 const monsters = [
   {
     name: "slime",
@@ -39,6 +45,8 @@ const monsters = [
     health: 300,
   },
 ];
+
+// locations array:
 const locations = [
   {
     name: "town square",
@@ -75,7 +83,7 @@ const locations = [
       "Go to town square",
       "Go to town square",
     ],
-    "button functions": [goTown, goTown, goTown],
+    "button functions": [goTown, goTown, easterEgg], // third function is different i.e. easterEgg
     text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
   },
   {
@@ -103,6 +111,7 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+// changes bwhat button does and displays.
 function update(location) {
   monsterStats.style.display = "none";
   button1.innerText = location["button text"][0];
@@ -138,10 +147,11 @@ function buyHealth() {
 }
 
 function buyWeapon() {
+  // You can only buy weapon if You have inventory space.
   if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
       gold -= 30;
-      currentWeapon++;
+      currentWeapon++; // incrementing the index
       goldText.innerText = gold;
       let newWeapon = weapons[currentWeapon].name;
       text.innerText = "You now have a " + newWeapon + ".";
@@ -157,6 +167,8 @@ function buyWeapon() {
   }
 }
 
+// You will be able to sell your weapon if you have a sword.
+// you will sell your first weapon. in the inventory
 function sellWeapon() {
   if (inventory.length > 1) {
     gold += 15;
@@ -169,6 +181,7 @@ function sellWeapon() {
   }
 }
 
+// changing the fighting variable for each monster. as they have different indexes
 function fightSlime() {
   fighting = 0;
   goFight();
@@ -186,20 +199,22 @@ function fightDragon() {
 
 function goFight() {
   update(locations[3]);
-  monsterHealth = monsters[fighting].health;
-  monsterStats.style.display = "block";
+  monsterHealth = monsters[fighting].health; // using . notation to access property inside an object inside an array.
+  monsterStats.style.display = "block"; // to make the stats visible. used block.
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
 }
 
+// function for attack logic.
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
   text.innerText +=
     " You attack it with your " + weapons[currentWeapon].name + ".";
-  health -= getMonsterAttackValue(monsters[fighting].level);
+  health -= getMonsterAttackValue(monsters[fighting].level); // health will decrease accroding to monster level and your xp.
   if (isMonsterHit()) {
+    // random function to make the game more randomized.
     monsterHealth -=
-      weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+      weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1; // more xp means more damage.
   } else {
     text.innerText += " You miss.";
   }
@@ -208,22 +223,31 @@ function attack() {
   if (health <= 0) {
     lose();
   } else if (monsterHealth <= 0) {
+    // 2 is for dragon(final boss)
+    // if we defeat him we winn the game.
     fighting === 2 ? winGame() : defeatMonster();
   }
+  // we have a 10% chance of breaking a weapon.
+  // but it will only work if you have more than 2 weapons. Only one weapon will never break.
   if (Math.random() <= 0.1 && inventory.length !== 1) {
     text.innerText += " Your " + inventory.pop() + " breaks.";
     currentWeapon--;
+
+    // poping the weapon from inventory as well as decreasing the index of current weapon arary.
   }
 }
 
+// function will reaturn the damage done by the monster.
+// the more xp you have , the  less  damage you will suffer.
 function getMonsterAttackValue(level) {
   const hit = level * 5 - Math.floor(Math.random() * xp);
   console.log(hit);
-  return hit > 0 ? hit : 0;
+  return hit > 0 ? hit : 0; // returning  like this because if xp is high, we might return -ve value.
 }
 
+// function which will decide if the monster will be hit or not. has 20% chance to miss.
 function isMonsterHit() {
-  return Math.random() > 0.2 || health < 20;
+  return Math.random() > 0.2 || health < 20; // also, if your healt is less than 20, you will not miss.
 }
 
 function dodge() {
@@ -231,21 +255,22 @@ function dodge() {
 }
 
 function defeatMonster() {
-  gold += Math.floor(monsters[fighting].level * 6.7);
+  gold += Math.floor(monsters[fighting].level * 6.7); // You will gain gold according to monster level * 6.7.
   xp += monsters[fighting].level;
   goldText.innerText = gold;
   xpText.innerText = xp;
-  update(locations[4]);
+  update(locations[4]); // location: kill monster.
 }
 
 function lose() {
-  update(locations[5]);
+  update(locations[5]); // location: lose
 }
 
 function winGame() {
-  update(locations[6]);
+  update(locations[6]); // location: win
 }
 
+// function to reset all the values and restart.
 function restart() {
   xp = 0;
   health = 100;
@@ -270,11 +295,30 @@ function pickEight() {
   pick(8);
 }
 
+// it will generate random 10 numbers.
+// if those numbers have either 2 or 8 and you choose 1 of them you will win 20 gold.
 function pick(guess) {
   const numbers = [];
   while (numbers.length < 10) {
-    numbers.push(Math.floor(Math.random() * 11));
+    numbers.push(Math.floor(Math.random() * 11)); // muliplied by 11 so will will get upto 10 numbers.
   }
   text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
-  for (let x = 1; x < 5; x++) {}
+  for (let i = 0; i < 10; i++) {
+    text.innerText += numbers[i] + "\n";
+  }
+
+  // indexOf function returns the index of first occurance of the number.
+  // and returns -1 if no. is not present inside array.
+  if (numbers.indexOf(guess) !== -1) {
+    text.innerText += "Right! You win 20 gold!";
+    gold += 20;
+    goldText.innerText = gold;
+  } else {
+    text.innerText += "Wrong! You lose 10 health!";
+    health -= 10;
+    healthText.innerText = health;
+    if (health <= 0) {
+      lose();
+    }
+  }
 }
