@@ -322,3 +322,13 @@ function pick(guess) {
     }
   }
 }
+
+// for removing hover for touch enabled devices.
+
+function hasTouch() {
+  return (
+    "ontouchstart" in document.documentElement ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0
+  );
+}

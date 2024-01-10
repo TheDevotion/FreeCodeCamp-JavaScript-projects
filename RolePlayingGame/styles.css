@@ -52,14 +52,9 @@ button {
   background-image: linear-gradient(#fecc4c, #ffac33);
   border: 3px solid #feac32;
   margin: 5px;
-  transition: 0.2s ease-in-out;
 }
 
-button:hover {
-  background-image: linear-gradient(#0a0a23, #0a0b33);
-  color: white;
-  border: 3px solid black;
-}
+/* Removed hover from here */
 
 @media (max-width: 480px) {
   #game {
