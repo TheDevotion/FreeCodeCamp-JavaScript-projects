@@ -1,11 +1,11 @@
 :root {
   /* colors */
-  --primary-color: #dfdfe2;
+  --primary-color: #b3b3b3;
   --secondary-color: #ffffff;
   --app-background-color: #4d4d62;
-  --background-color: #1b1b32;
-  --foreground-color: #3b3b4f;
-  --highlight-color: #f1be32;
+  --background-color: #121212;
+  --foreground-color: #212121;
+  --highlight-color: #1db954;
 
   /* font sizes */
   --root-font-size: 16px;
@@ -55,6 +55,7 @@ ul {
   width: 450px;
   background-color: var(--background-color);
   border: 3px solid var(--foreground-color);
+  border-radius: 2%;
 }
 
 .player {
@@ -64,6 +65,7 @@ ul {
   flex-direction: column;
   align-items: center;
   row-gap: 10px;
+  border-radius: 2%;
 }
 
 .player-bar,
@@ -71,10 +73,10 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
   width: 100%;
   height: 30px;
   background-color: var(--foreground-color);
+  border-radius: 2%;
 }
 
 .parallel-lines {
@@ -89,6 +91,7 @@ ul {
   width: 100%;
   min-width: 75px;
   background-color: var(--highlight-color);
+  border-radius: 25%;
 }
 
 .fcc-title,
@@ -106,16 +109,19 @@ ul {
   column-gap: 13px;
   align-items: center;
   justify-content: center;
+  border-radius: 2%;
 }
 
 #player-album-art {
   background-color: var(--secondary-color);
   border: 6px solid var(--background-color);
+  border-radius: 2%;
 }
 
 #player-album-art img {
   width: 150px;
   display: block;
+  border-radius: 2%;
 }
 
 .player-display {
@@ -126,6 +132,7 @@ ul {
   background-color: var(--background-color);
   height: 153px;
   width: 226px;
+  border-radius: 2%;
 }
 
 .player-display-song-artist {
@@ -165,8 +172,8 @@ button {
 
 button:focus,
 .playlist-song:focus {
-  outline-style: dashed;
-  outline-width: 2px;
+  outline-style: hidden;
+  outline-width: 1px;
 }
 
 /* Playlist */
@@ -198,6 +205,7 @@ button:focus,
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  border-radius: 2%;
 }
 
 [aria-current="true"] {
@@ -284,6 +292,7 @@ button:focus,
     overflow-x: hidden;
     scrollbar-color: var(--background-color) var(--secondary-color);
     scrollbar-width: thin;
+    border-radius: 2%;
   }
 
   #playlist-songs::-webkit-scrollbar {
@@ -366,4 +375,13 @@ button:focus,
     justify-content: space-between;
     text-align: center;
   }
+}
+
+/* reset buttons css  */
+
+#reset {
+  background-color: var(--background-color);
+  padding: 1rem;
+  color: var(--secondary-color);
+  font-family: var(--font-headline);
 }
