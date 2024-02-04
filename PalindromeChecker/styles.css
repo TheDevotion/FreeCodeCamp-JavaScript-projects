@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -9,12 +9,15 @@ html {
   text-align: center;
 }
 
+body {
+  background-color: #121212;
+}
+
 .main-container {
   width: 50%;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  background-color: aqua;
   left: 25vw;
   min-width: 400px;
 }
@@ -27,5 +30,43 @@ h1 {
 .container {
   width: 100%;
   background-color: #fff;
-  box-shadow: 10px 10px 5px blue;
+  box-shadow: -1px 6px 5px rgba(0, 0, 255, 0.7);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.container {
+  font-weight: small;
+  color: purple;
+}
+.container p {
+  margin-bottom: 1rem;
+}
+
+#text-input {
+  border: none;
+  border-bottom: 2px solid purple;
+  width: 60%;
+  height: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: small;
+}
+
+#check-btn {
+  color: white;
+  background-color: purple;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.note {
+  width: 100%;
+  background-color: green;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
 }
