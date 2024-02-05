@@ -1,21 +1,26 @@
-// copy of: https://palindrome-checker.freecodecamp.rocks/
-
+// getting all elements:
 const checkButton = document.getElementById("check-btn");
-
 const textInput = document.getElementById("text-input");
+const str = textInput.value;
 
-const str = new String(textInput.value);
+// function to reverse the string:
+function reverseString(str) {
+  return Array.from(this.str).reverse().join("");
+}
 
-const revStr = str.split().reverse().join();
+// function to check if given string is palindrome or not.
+function isPalindrome(str) {
+  if (str === reverseString(this.str)) {
+    return true;
+  }
+  return false;
+}
 
 checkButton.addEventListener("click", (str) => {
-  if (str === null) {
-    alert("Please Input a value");
+  console.log(this.str);
+  if (isPalindrome(str)) {
+    console.log(`${str} is palindrome`);
   } else {
-    if (str == revStr) {
-      alert("is palindrome");
-    } else {
-      alert("not palindrome");
-    }
+    console.log(`${str} is NOT a palindrome`);
   }
 });
