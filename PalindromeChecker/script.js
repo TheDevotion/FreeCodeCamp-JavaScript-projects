@@ -21,9 +21,12 @@ function isPalindrome(str) {
 
 function displayResult() {
   const str = textInput.value; // get the value after the button is clicked..
+  if (str.length === 0) {
+    alert("Please input a value");
+  }
   if (isPalindrome(str)) {
-    result.innerHTML = `is Palindrome`;
+    result.innerHTML = `${str} is a palindrome`;
   } else {
-    result.innerHTML = `is NOT a palindrome`;
+    result.innerHTML = `${str} is not a palindrome`;
   }
 }
