@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: #121212;
+  background-color: #636e63;
 }
 
 .main-container {
@@ -27,7 +27,7 @@ h1 {
 .container {
   width: 100%;
   background-color: #fff;
-  box-shadow: -1px 6px 5px rgba(0, 0, 255, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   padding: 1rem;
   margin: 1rem 0;
@@ -35,7 +35,7 @@ h1 {
 
 .container {
   font-weight: small;
-  color: purple;
+  color: #040505;
 }
 .container p {
   margin-bottom: 1rem;
@@ -43,7 +43,7 @@ h1 {
 
 #text-input {
   border: none;
-  border-bottom: 2px solid purple;
+  border-bottom: 2px solid #040505;
   width: 60%;
   height: 2rem;
   text-align: center;
@@ -53,7 +53,7 @@ h1 {
 
 #check-btn {
   color: white;
-  background-color: purple;
+  background-color: #040505;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -62,7 +62,7 @@ h1 {
 
 .note {
   width: 100%;
-  background-color: green;
+  background-color: #040505;
   color: #fff;
   border-radius: 1rem;
   padding: 1.5rem;
