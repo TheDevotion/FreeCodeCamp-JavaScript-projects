@@ -14,12 +14,9 @@ body {
 }
 
 .main-container {
-  width: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 25vw;
-  min-width: 400px;
+  width: 75%;
+  margin: 100px auto;
+  max-width: 600px;
 }
 
 h1 {
