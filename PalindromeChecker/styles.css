@@ -60,6 +60,7 @@ h1 {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  margin: 1rem;
 }
 
 .note {
@@ -69,4 +70,9 @@ h1 {
   border-radius: 1rem;
   padding: 1.5rem;
   margin: 2rem 0;
+}
+
+#result {
+  margin-top: 1rem;
+  color: red;
 }
