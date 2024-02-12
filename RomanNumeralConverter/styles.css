@@ -1,0 +1,87 @@
+:root {
+  --yellow: #ffc567;
+  --orange: #fd5a46;
+  --green: #00995e;
+  --blue: #058cd7;
+  --white: #eeeeee;
+  --black: #121212;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "ROboto", sans-serif;
+  background-color: var(--white);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+.main-container {
+  max-width: 500px;
+  max-height: 70vh;
+  text-align: center;
+  margin: 6rem auto;
+}
+
+.conversion-container {
+  background-color: var(--blue);
+  padding: 2rem;
+  border: 2px solid var(--yellow);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.conversion-container p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#number,
+#convert-btn {
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 1px;
+  border: 2px solid var(--white);
+}
+
+#number {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  appearance: none;
+}
+
+#convert-btn {
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: bold;
+}
+
+#output {
+  border-radius: 1rem;
+}
+
+.green {
+  background-color: var(--green);
+}
+
+.orange {
+  background-color: var(--orange);
+}
