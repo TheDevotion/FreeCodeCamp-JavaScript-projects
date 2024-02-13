@@ -75,13 +75,28 @@ h1 {
 }
 
 #output {
+  padding: 2rem;
+  margin: 1rem auto;
+
   border-radius: 1rem;
 }
 
-.green {
-  background-color: var(--green);
+.orange-bg {
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid red;
 }
 
-.orange {
-  background-color: var(--orange);
+.blue-bg {
+  background-color: var(--blue);
+  border: 2px solid var(--yellow);
+  color: var(--white);
+  font-size: 2rem;
 }
+
+/* hidden class for toggle. */
+/* .hidden {
+  display: none;
+} */
