@@ -28,13 +28,14 @@ h1 {
 }
 
 .main-container {
-  max-width: 500px;
+  max-width: 480px;
   max-height: 70vh;
   text-align: center;
   margin: 6rem auto;
 }
 
 .conversion-container {
+  margin-top: 1rem;
   background-color: var(--blue);
   padding: 2rem;
   border: 2px solid var(--yellow);
@@ -43,6 +44,7 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly;
   gap: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .conversion-container p {
@@ -72,8 +74,12 @@ h1 {
   background-color: var(--yellow);
   color: var(--black);
   font-weight: bold;
+  cursor: pointer;
 }
 
+#convert-btn:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
 #output {
   padding: 2rem;
   margin: 1rem auto;
@@ -89,14 +95,15 @@ h1 {
   border: 2px solid red;
 }
 
-.blue-bg {
-  background-color: var(--blue);
+.black-bg {
+  background-color: var(--black);
   border: 2px solid var(--yellow);
   color: var(--white);
   font-size: 2rem;
 }
 
-/* hidden class for toggle. */
-/* .hidden {
-  display: none;
-} */
+@media (max-width: 468px) {
+  .main-container {
+    max-width: 90%;
+  }
+}

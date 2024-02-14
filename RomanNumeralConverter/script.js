@@ -4,93 +4,119 @@ const output = document.getElementById("output");
 
 // creating an array of object with roman numerals and their arabic counterpart.
 
-const romanSymbolValues = [
+const romanSymbols = [
   {
     romanSymbol: "M",
-    value: 1000,
+    val: 1000,
   },
   {
     romanSymbol: "CM",
-    value: 900,
+    val: 900,
   },
   {
     romanSymbol: "D",
-    value: 500,
+    val: 500,
   },
   {
     romanSymbol: "CD",
-    value: 400,
+    val: 400,
   },
   {
     romanSymbol: "C",
-    value: 100,
+    val: 100,
   },
   {
     romanSymbol: "XC",
-    value: 90,
+    val: 90,
   },
   {
     romanSymbol: "L",
-    value: 50,
+    val: 50,
   },
   {
     romanSymbol: "XL",
-    value: 40,
+    val: 40,
   },
   {
     romanSymbol: "X",
-    value: 10,
+    val: 10,
   },
   {
     romanSymbol: "IX",
-    value: 9,
+    val: 9,
   },
   {
     romanSymbol: "VIII",
-    value: 8,
+    val: 8,
   },
   {
     romanSymbol: "VII",
-    value: 7,
+    val: 7,
   },
   {
     romanSymbol: "VI",
-    value: 6,
+    val: 6,
   },
   {
     romanSymbol: "V",
-    value: 5,
+    val: 5,
   },
   {
     romanSymbol: "IV",
-    value: 4,
+    val: 4,
   },
   {
     romanSymbol: "III",
-    value: 3,
+    val: 3,
   },
   {
     romanSymbol: "II",
-    value: 2,
+    val: 2,
   },
   {
     romanSymbol: "I",
-    value: 1,
+    val: 1,
   },
 ];
 
 // function to take value when convert  button clicked.
 convertBtn.addEventListener("click", () => {
+  resetOutput();
   const numInput = getValidInput();
+  convertNumToRoman(numInput);
 });
 
-const convertNumToRoman = (num = {
-  // romanNumValues.forEach(obj => {
-  // });
+// it will work when I press ENTER
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    resetOutput();
+    const numInput = getValidInput();
+    convertNumToRoman(numInput);
+  }
 });
+
+//function to reset the innerHTML;
+
+const resetOutput = () => {
+  output.innerHTML = "";
+  output.classList.remove("black-bg");
+  output.classList.remove("orange-bg");
+};
+
+const convertNumToRoman = (num) => {
+  romanSymbols.forEach((obj) => {
+    while (num >= obj.val) {
+      output.innerHTML += `${obj.romanSymbol}`;
+      output.classList.add("black-bg");
+      num -= obj.val;
+    }
+  });
+};
 
 const getValidInput = () => {
   const numInput = parseInt(input.value);
+
   // including some cheks before geting the value.
   if (!numInput && numInput !== 0) {
     output.innerHTML = "<p>Please enter a valid number</p>";
