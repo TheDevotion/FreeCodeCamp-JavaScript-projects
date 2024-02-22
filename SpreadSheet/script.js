@@ -33,6 +33,27 @@ const spreadsheetFunctions = {
   sum,
   average,
   median,
+  even: (nums) => nums.filter(isEven),
+
+  firsttwo: (nums) => nums.slice(0, 2),
+  lasttwo: (nums) => nums.slice(-2),
+  has2: (nums) => nums.includes(2),
+  increment: (nums) => nums.map((num) => num + 1),
+};
+
+const applyFunction = (str) => {
+  const noHigh = highPrecedence(str);
+  const infix = /([\d.]+)([+-])([\d.]+)/;
+  const str2 = infixEval(noHigh, infix);
+  const functionCall = /([a-z]*)\(([0-9., ]*)\)(?!.*\()/i;
+  const toNumberList = (args) => args.split(",").map(parseFloat);
+  const apply = (fn, args) =>
+    spreadsheetFunctions[fn.toLowerCase()](toNumberList(args));
+  return str2.replace(functionCall, (match, fn, args) =>
+    spreadsheetFunctions.hasOwnProperty(fn.toLowerCase())
+      ? apply(fn, args)
+      : match
+  );
 };
 
 const range = (start, end) =>
@@ -60,6 +81,10 @@ const evalFormula = (x, cells) => {
   const cellExpanded = rangeExpanded.replace(cellRegex, (match) =>
     idToText(match.toUpperCase())
   );
+  const functionExpanded = applyFunction(cellExpanded);
+  return functionExpanded === x
+    ? functionExpanded
+    : evalFormula(functionExpanded, cells);
 };
 
 window.onload = () => {
@@ -89,5 +114,9 @@ const update = (event) => {
   const element = event.target;
   const value = element.value.replace(/\s/g, "");
   if (!value.includes(element.id) && value.startsWith("=")) {
+    element.value = evalFormula(
+      value.slice(1),
+      Array.from(document.getElementById("container").children)
+    );
   }
 };
