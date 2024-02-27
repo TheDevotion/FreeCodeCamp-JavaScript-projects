@@ -1,0 +1,46 @@
+:root {
+  --yellow: #ffc567;
+  --orange: #fd5a46;
+  --green: #00995e;
+  --blue: #058cd7;
+  --white: #eeeeee;
+  --black: #121212;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  font-family: "roboto", sans-serif;
+  background-color: var(--yellow);
+}
+
+.phone-body {
+  background-color: var(--black);
+  height: 400px;
+  max-width: 35%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.phone-screen {
+  background-color: var(--white);
+  height: 85%;
+  width: 95%;
+  margin: auto;
+}
+
+button {
+  background-color: var(--blue);
+  color: var(--black);
+  padding: 10px 20px;
+  border: 1px solid var(--yellow);
+  margin: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
