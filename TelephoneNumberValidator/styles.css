@@ -16,15 +16,19 @@
 body {
   text-align: center;
   font-family: "roboto", sans-serif;
-  background-color: var(--yellow);
+  background-color: var(--blue);
+}
+h1 {
+  padding: 2rem;
 }
 
 .phone-body {
   background-color: var(--black);
-  height: 400px;
+  height: 480px;
   max-width: 35%;
   margin: auto;
   border-radius: 10px;
+  padding-top: 10px;
 }
 
 .phone-screen {
@@ -34,13 +38,31 @@ body {
   margin: auto;
 }
 
+.phone-screen p {
+  font-size: 24px;
+  margin-top: 10px;
+  padding-top: 1rem;
+}
+
+#user-input {
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  background-color: var(--blue);
+  color: var(--black);
+  padding: 1rem;
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 20px;
+}
 button {
   background-color: var(--blue);
   color: var(--black);
   padding: 10px 20px;
-  border: 1px solid var(--yellow);
+  border: 1px solid var(--white);
   margin: 8px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  width: 40%;
 }
