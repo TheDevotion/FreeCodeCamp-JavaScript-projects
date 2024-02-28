@@ -44,14 +44,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.8),
+    /* top */ -5px 0 5px -5px rgba(0, 0, 0, 0.8),
+    /* left */ 5px 0 5px -5px rgba(0, 0, 0, 0.8),
+    /* right */ 0 -5px 5px -5px rgba(0, 0, 0, 0.8); /* bottom */
 }
 
 .dessert-price {
   font-size: 1.2rem;
   background-color: var(--orange);
-  width: 30%;
+  width: fit-content;
   margin: 5px auto;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .btn {
@@ -63,6 +68,10 @@ body {
   border: none;
   border-radius: 5px;
   padding: 0.5rem;
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.3),
+    /* top */ -5px 0 5px -5px rgba(0, 0, 0, 0.3),
+    /* left */ 5px 0 5px -5px rgba(0, 0, 0, 0.3),
+    /* right */ 0 -5px 5px -5px rgba(0, 0, 0, 0.3); /* bottom */
 }
 
 .btn:hover {
