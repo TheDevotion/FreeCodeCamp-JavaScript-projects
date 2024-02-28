@@ -41,12 +41,15 @@ body {
   text-align: center;
   border-radius: 15px;
   margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .dessert-price {
   font-size: 1.2rem;
   background-color: var(--orange);
-  width: 50%;
+  width: 30%;
   margin: 5px auto;
   border-radius: 5px;
 }
