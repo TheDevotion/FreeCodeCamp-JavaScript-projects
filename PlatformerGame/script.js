@@ -30,4 +30,10 @@ class Player {
     ctx.fillStyle = "#99c9ff";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+
+  update() {
+    this.draw();
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
+  }
 }
