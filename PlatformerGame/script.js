@@ -187,6 +187,7 @@ const animate = () => {
       player.position.x >= platform.position.x - player.width / 2,
       player.position.x <=
         platform.position.x + platform.width - player.width / 3,
+
       player.position.y + player.height >= platform.position.y,
       player.position.y <= platform.position.y + platform.height,
     ];
@@ -204,7 +205,24 @@ const animate = () => {
       player.position.y + player.height <=
         checkpoint.position.y + checkpoint.height,
       isCheckpointCollisionDetectionActive,
+      player.position.x - player.width <=
+        checkpoint.position.x - checkpoint.width + player.width * 0.9,
+      index === 0 || checkpoints[index - 1].claimed === true,
     ];
+
+    if (checkpointDetectionRules.every((rule) => rule)) {
+      checkpoint.claim();
+
+      if (index === checkpoints.length - 1) {
+        isCheckpointCollisionDetectionActive = false;
+        showCheckpointScreen("You reached the final checkpoint!");
+        movePlayer("ArrowRight", 0, false);
+      } else if (
+        player.positon.x >= checkpoint.positon.x &&
+        player.position.x <= checkpoint.position.x + 40
+      ) {
+      }
+    }
   });
 };
 
