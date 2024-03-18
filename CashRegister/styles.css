@@ -5,13 +5,17 @@
 }
 
 :root {
-  --light-gray: #dfdfe2;
+  --yellow: #ffc567;
+  --orange: #fd5a46;
+  --green: #00995e;
+  --blue: #058cd7;
+  --white: #eeeeee;
   --black: #121212;
 }
 
 body {
   background-color: var(--black);
-  color: var(--light-gray);
+  color: var(--white);
   font-family: sans-serif;
 }
 
@@ -63,11 +67,11 @@ label {
 }
 
 .price-screen {
-  border: 10px solid yellow;
+  border: 10px solid var(--yellow);
   background-color: black;
   height: 50px;
   width: 200px;
-  color: white;
+  color: var(--white);
   font-size: 1.2rem;
   text-align: center;
   display: flex;
@@ -87,7 +91,7 @@ label {
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
-  background-color: #858585;
+  background-color: var(--blue);
   height: 250px;
   width: 325px;
   border-radius: 5px;
@@ -106,7 +110,7 @@ label {
   width: 100px;
   height: 30px;
   margin: 10px;
-  color: #0a0a23;
+  color: var(--orange);
   font-size: 18px;
   font-weight: bold;
   border: none;
