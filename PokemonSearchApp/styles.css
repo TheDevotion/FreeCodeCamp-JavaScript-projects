@@ -26,6 +26,7 @@
 h1 {
   text-align: center;
   color: var(--super-yellow);
+  margin: 1rem;
 }
 
 body {
@@ -35,10 +36,13 @@ body {
 
 .main-container {
   background-color: var(--super-yellow);
-  height: 800px;
+  height: 786px;
   width: 440px;
   margin: auto;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 /* search  */
@@ -54,7 +58,7 @@ body {
 }
 .pokemon-search {
   text-align: center;
-  height: 16%;
+  height: 14%;
 }
 
 #search-input {
@@ -92,7 +96,7 @@ body {
 /* pokemon display  */
 
 .pokemon-display {
-  height: 44%;
+  height: 42%;
   width: 95%;
   background-color: var(--dark-yellow);
   margin: auto;
@@ -101,12 +105,31 @@ body {
 .pokemon-stats {
   width: 95%;
   margin: auto;
+  background-color: var(--white);
+  height: 38%;
+}
+
+#stats-table {
+  padding-top: 4px;
+  width: 95%;
+  margin: auto;
 }
 
 #stats-table tr {
   background-color: var(--brown1);
   color: var(--white);
+  margin: auto;
+  height: 2.5rem;
 }
 
 #stats-table th {
+  width: 69%;
+}
+
+#stat-heading {
+  width: 29%;
+}
+
+#stats-table td {
+  width: 29%;
 }
