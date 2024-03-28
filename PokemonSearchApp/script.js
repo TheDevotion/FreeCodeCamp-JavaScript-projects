@@ -1,5 +1,3 @@
-// getting all the elements:
-
 // search elements:
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
@@ -19,3 +17,37 @@ const defense = document.getElementById("defense");
 const specialAttack = document.getElementById("special-attack");
 const specialDefense = document.getElementById("special-defense");
 const speed = document.getElementById("speed");
+
+// valid pokemons array:
+
+let validPokemonsArr = [];
+
+const fetchPokemonIdData = () => {
+  fetch("https://pokeapi-proxy.freecodecamp.rocks/api/pokemon")
+    .then((response) => response.json())
+    .then((data) => {
+      validPokemonsArr = data.results;
+      checkValidPokemon(validPokemonsArr); // it comes in then because we can only do this if we fetched all data.
+    })
+    .catch((error) => {
+      alert("Ther was an error getting the pokemon ID data");
+    });
+};
+
+const checkValidPokemon = (validPokemonsArr) => {
+  const input = searchInput.value.toLowerCase();
+
+  //check if it matches any pokemon name or ID
+
+  const matchFound = validPokemonsArr.find((res) => {
+    return res.name.toLowerCase() === input || res.id.toString() === input;
+  });
+
+  if (matchFound) {
+    showPokemon(matchFound.url);
+  } else {
+    alert("Pokémon not found");
+  }
+};
+
+searchButton.addEventListener("click", fetchPokemonIdData);
