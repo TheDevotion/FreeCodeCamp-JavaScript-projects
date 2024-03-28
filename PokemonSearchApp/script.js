@@ -26,6 +26,7 @@ let validPokemonsArr = [];
 let currentPokemon = [];
 
 const fetchPokemonIdData = () => {
+  resetDisplay();
   // fetching the data of valid pokemons:
   fetch("https://pokeapi-proxy.freecodecamp.rocks/api/pokemon")
     .then((response) => response.json())
@@ -69,10 +70,11 @@ const getCurrentPokemon = (url) => {
 };
 
 const showPokemon = (currentPokemon) => {
-  pokemonName.innerText = currentPokemon.name;
-  pokemonId.innerText = currentPokemon.id;
-  weight.innerText = currentPokemon.weight;
-  height.innerText = currentPokemon.height;
+  // pokemon basic info:
+  pokemonName.innerText = currentPokemon.name.toUpperCase();
+  pokemonId.textContent = `#${currentPokemon.id}`;
+  weight.textContent = `weight: ${currentPokemon.weight}`;
+  height.textContent = `Height: ${currentPokemon.height}`;
 
   // sprite:
   spriteContainer.innerHTML = `<img src="${currentPokemon.sprites.front_default}" alt="${currentPokemon.name} image">`;
@@ -80,11 +82,33 @@ const showPokemon = (currentPokemon) => {
   // types:
   // pokemon have multiple types.
 
-  // clearing the types first:
+  pokemonTypes.innerHTML = "";
 
   currentPokemon.types.forEach((el) => {
     pokemonTypes.innerHTML += ` <span claas="type ${el.type.name}">${el.type.name}</span>`;
   });
+
+  // pokemon stats:
+  hp.innerText = currentPokemon.stats[0].base_stat;
+  attack.innerText = currentPokemon.stats[1].base_stat;
+  defense.innerText = currentPokemon.stats[2].base_stat;
+  specialAttack.innerText = currentPokemon.stats[3].base_stat;
+  specialDefense.innerText = currentPokemon.stats[4].base_stat;
+  speed.innerText = currentPokemon.stats[5].base_stat;
 };
 
+const resetDisplay = () => {
+  pokemonName.innerText = "";
+  pokemonId.textContent = "";
+  weight.textContent = "";
+  height.textContent = "";
+  spriteContainer.innerHTML = "";
+  pokemonTypes.innerHTML = "";
+  hp.innerText = "";
+  attack.innerText = "";
+  defense.innerText = "";
+  specialAttack.innerText = "";
+  specialDefense.innerText = "";
+  speed.innerText = "";
+};
 searchButton.addEventListener("click", fetchPokemonIdData);
