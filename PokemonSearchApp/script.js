@@ -7,7 +7,9 @@ const pokemonName = document.getElementById("pokemon-name");
 const pokemonId = document.getElementById("pokemon-id");
 const weight = document.getElementById("weight");
 const height = document.getElementById("height");
-const types = document.getElementById("types");
+const pokemonTypes = document.getElementById("types");
+
+const spriteContainer = document.querySelector(".sprite-container");
 
 // stats elements:
 
@@ -21,9 +23,10 @@ const speed = document.getElementById("speed");
 // valid pokemons array:
 
 let validPokemonsArr = [];
-let url;
+let currentPokemon = [];
 
 const fetchPokemonIdData = () => {
+  // fetching the data of valid pokemons:
   fetch("https://pokeapi-proxy.freecodecamp.rocks/api/pokemon")
     .then((response) => response.json())
     .then((data) => {
@@ -46,14 +49,42 @@ const checkValidPokemon = (validPokemonsArr) => {
   });
 
   if (matchFound) {
-    showPokemon(matchFound.url);
+    getCurrentPokemon(matchFound.url);
   } else {
     alert("Pokémon not found");
   }
 };
 
-const showPokemon = (url) => {
-  console.log(url);
+const getCurrentPokemon = (url) => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      currentPokemon = data;
+      showPokemon(currentPokemon); // it comes in then because we can only do this if we fetched all data.
+    })
+    .catch((error) => {
+      console.error("Error in fetching current Pokemon:", error);
+      alert("There was an error getting the CURRENT pokemon data");
+    });
+};
+
+const showPokemon = (currentPokemon) => {
+  pokemonName.innerText = currentPokemon.name;
+  pokemonId.innerText = currentPokemon.id;
+  weight.innerText = currentPokemon.weight;
+  height.innerText = currentPokemon.height;
+
+  // sprite:
+  spriteContainer.innerHTML = `<img src="${currentPokemon.sprites.front_default}" alt="${currentPokemon.name} image">`;
+
+  // types:
+  // pokemon have multiple types.
+
+  // clearing the types first:
+
+  currentPokemon.types.forEach((el) => {
+    pokemonTypes.innerHTML += ` <span claas="type ${el.type.name}">${el.type.name}</span>`;
+  });
 };
 
 searchButton.addEventListener("click", fetchPokemonIdData);
