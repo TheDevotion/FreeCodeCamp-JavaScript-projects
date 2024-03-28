@@ -21,6 +21,7 @@ const speed = document.getElementById("speed");
 // valid pokemons array:
 
 let validPokemonsArr = [];
+let url;
 
 const fetchPokemonIdData = () => {
   fetch("https://pokeapi-proxy.freecodecamp.rocks/api/pokemon")
@@ -30,7 +31,8 @@ const fetchPokemonIdData = () => {
       checkValidPokemon(validPokemonsArr); // it comes in then because we can only do this if we fetched all data.
     })
     .catch((error) => {
-      alert("Ther was an error getting the pokemon ID data");
+      console.error("Error in fetching:", error);
+      alert("There was an error getting the pokemon ID data");
     });
 };
 
@@ -48,6 +50,10 @@ const checkValidPokemon = (validPokemonsArr) => {
   } else {
     alert("Pokémon not found");
   }
+};
+
+const showPokemon = (url) => {
+  console.log(url);
 };
 
 searchButton.addEventListener("click", fetchPokemonIdData);
