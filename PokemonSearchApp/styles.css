@@ -63,6 +63,7 @@ body {
 }
 
 #search-input {
+  text-align: center;
   padding: 0.75rem;
   border-radius: 6px;
   border-style: none;
@@ -107,6 +108,24 @@ body {
   margin: auto;
 }
 
+.pokemon-id-container {
+  display: flex;
+}
+#pokemon-id {
+  margin-left: 0.5rem;
+}
+
+.weight-height-container {
+  display: flex;
+  gap: 1rem;
+}
+.sprite-container {
+  display: flex;
+  justify-content: center;
+}
+#sprite {
+  width: 50%;
+}
 /* types  */
 
 .type {

@@ -77,7 +77,7 @@ const showPokemon = (currentPokemon) => {
   height.textContent = `Height: ${currentPokemon.height}`;
 
   // sprite:
-  spriteContainer.innerHTML = `<img src="${currentPokemon.sprites.front_default}" alt="${currentPokemon.name} image">`;
+  spriteContainer.innerHTML = `<img id="sprite" src="${currentPokemon.sprites.front_default}" alt="${currentPokemon.name} image">`;
 
   // types:
   // pokemon have multiple types.
