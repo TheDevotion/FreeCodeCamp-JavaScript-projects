@@ -63,6 +63,7 @@ body {
 }
 
 #search-input {
+  width: 66%;
   text-align: center;
   padding: 0.75rem;
   border-radius: 6px;
@@ -248,4 +249,37 @@ body {
 
 #stats-table td {
   width: 29%;
+  text-align: center;
+}
+
+/* Media query : */
+
+/* For screens smaller than 480px (small smartphones) */
+@media only screen and (max-width: 479px) {
+  .main-container {
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.25rem; /* Adjust heading size */
+  }
+
+  .pokemon-search p {
+    font-size: 1rem; /* Adjust paragraph font size */
+  }
+
+  .pokemon-display,
+  .pokemon-stats {
+    width: 100%; /* Adjust width to fit the screen */
+  }
+
+  #sprite {
+    width: 58%; /* Adjust sprite size */
+  }
+
+  #stats-table th,
+  #stats-table td {
+    width: auto; /* Allow table cells to take natural width */
+  }
 }
