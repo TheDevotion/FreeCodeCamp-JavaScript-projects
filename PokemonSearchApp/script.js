@@ -85,7 +85,7 @@ const showPokemon = (currentPokemon) => {
   pokemonTypes.innerHTML = "";
 
   currentPokemon.types.forEach((el) => {
-    pokemonTypes.innerHTML += ` <span claas="type ${el.type.name}">${el.type.name}</span>`;
+    pokemonTypes.innerHTML += ` <div class="type ${el.type.name}">${el.type.name}</div>`;
   });
 
   // pokemon stats:
@@ -111,4 +111,11 @@ const resetDisplay = () => {
   specialDefense.innerText = "";
   speed.innerText = "";
 };
+
 searchButton.addEventListener("click", fetchPokemonIdData);
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    fetchPokemonIdData();
+  }
+});
